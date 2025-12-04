@@ -1,0 +1,86 @@
+export const testimonialsData = [
+  {
+    type: "text",
+    id: 1,
+    review:
+      "As a fresher, I wanted to break into IT. The hands-on training at iTprencur and the placement support helped me secure a role as a DotNet Developer at Intellisourse. The hands-on training at iTprencur and the placement support helped me secure.",
+    name: "Roshan Doe",
+    role: "Software Developer",
+    isVerified: true,
+    companyLogo: "/temp/com.png",
+    studentPhoto: "/temp/stu.png",
+  },
+  {
+    type: "video",
+    id: 2,
+    videoUrl: "/video/dump-video.mp4",
+    thumbnail: "/temp/thumbnail.png",
+    name: "Jane Doe",
+    role: "Software Developer at Accenture",
+    caption: "my friend told me about",
+  },
+  {
+    type: "text",
+    id: 3,
+    review:
+      "As a fresher, I wanted to break into IT. The hands-on training at iTprencur and the placement support helped me secure a role as a DotNet Developer at Intellisourse. The hands-on training at iTprencur and the placement support helped me secure.",
+    name: "Roshan Doe",
+    role: "Software Developer",
+    isVerified: true,
+    companyLogo: "/temp/com.png",
+    studentPhoto: "/temp/stu.png",
+  },
+  {
+    type: "text",
+    id: 4,
+    review:
+      "As a fresher, I wanted to break into IT. The hands-on training at iTprencur and the placement support helped me secure a role as a DotNet Developer at Intellisourse. The hands-on training at iTprencur and the placement support helped me secure.",
+    name: "Roshan Doe",
+    role: "Software Developer",
+    isVerified: true,
+    companyLogo: "/temp/com.png",
+    studentPhoto: "/temp/stu.png",
+  },
+  {
+    type: "text",
+    id: 5,
+    review:
+      "As a fresher, I wanted to break into IT. The hands-on training at iTprencur and the placement support helped me secure a role as a DotNet Developer at Intellisourse. The hands-on training at iTprencur and the placement support helped me secure.",
+    name: "Roshan Doe",
+    role: "Software Developer",
+    isVerified: true,
+    companyLogo: "/temp/com.png",
+    studentPhoto: "/temp/stu.png",
+  },
+  {
+    type: "video",
+    id: 6,
+    videoUrl: "/video/dump-video.mp4",
+    thumbnail: "/temp/thumbnail.png",
+    name: "Jane Doe",
+    role: "Software Developer at Accenture",
+    caption: "my friend told me about",
+  },
+  {
+    type: "text",
+    id: 7,
+    review:
+      "As a fresher, I wanted to break into IT. The hands-on training at iTprencur and the placement support helped me secure a role as a DotNet Developer at Intellisourse. The hands-on training at iTprencur and the placement support helped me secure.",
+    name: "Roshan Doe",
+    role: "Software Developer",
+    isVerified: true,
+    companyLogo: "/temp/com.png",
+    studentPhoto: "/temp/stu.png",
+  },
+  {
+    type: "text",
+    id: 8,
+    review:
+      "As a fresher, I wanted to break into IT. The hands-on training at iTprencur and the placement support helped me secure a role as a DotNet Developer at Intellisourse. The hands-on training at iTprencur and the placement support helped me secure.",
+    name: "Roshan Doe",
+    role: "Software Developer",
+    isVerified: true,
+    companyLogo: "/temp/com.png",
+    studentPhoto: "/temp/stu.png",
+  },
+];
