@@ -8,6 +8,7 @@ import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
 import { testimonialsData } from "@/constants/testimonialsData";
 import StatsSection from "./StatsSection";
+
 const HeroSectionHome = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
@@ -91,10 +92,23 @@ const HeroSectionHome = () => {
 const TextTestimonialCard = ({ data }) => {
   return (
     <div className="bg-white rounded-2xl p-6 shadow-lg h-[495px] md:h-[450px] flex flex-col justify-between">
-      {/* Review Text */}
-      <p className="text-[#6B6978] text-[18px] leading-relaxed ">
-        {data.review}
-      </p>
+      {/* Review Text - Hidden Scrollbar */}
+      <div
+        className="flex-1 overflow-y-auto"
+        style={{
+          scrollbarWidth: "none" /* Firefox */,
+          msOverflowStyle: "none" /* IE and Edge */,
+        }}
+      >
+        <style jsx>{`
+          div::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
+          }
+        `}</style>
+        <p className="text-[#6B6978] text-[18px] leading-relaxed">
+          {data.review}
+        </p>
+      </div>
 
       {/* Student Info */}
       <div className="flex items-end gap-4 mt-6">
@@ -334,4 +348,5 @@ const VideoTestimonialCard = ({ data }) => {
     </div>
   );
 };
+
 export default HeroSectionHome;
