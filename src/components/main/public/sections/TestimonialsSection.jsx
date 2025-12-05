@@ -1,15 +1,12 @@
 "use client";
 
-import { useCallback, useEffect } from "react";
 import { useState, useRef } from "react";
-
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
-import { testimonialsData } from "@/constants/testimonialsData";
-import StatsSection from "./StatsSection";
-const HeroSection = () => {
-  const [emblaRef, emblaApi] = useEmblaCarousel(
+
+const TestimonialsSection = ({ testimonials, title, description }) => {
+  const [emblaRef] = useEmblaCarousel(
     {
       loop: true,
       align: "center",
@@ -19,93 +16,81 @@ const HeroSection = () => {
     [Autoplay({ delay: 4000, stopOnInteraction: false })]
   );
 
+  if (!testimonials || testimonials.length === 0) {
+    return null;
+  }
+
   return (
-    <section
-      className="relative min-h-screen rm overflow-hidden"
-      style={{
-        background:
-          "linear-gradient(183.99deg, #85C325 22.03%, #FFFFFF 62.74%)",
-      }}
-    >
+    <section className="rm">
       <div className="">
-        {/* Hero Content */}
-        <div className="text-center mb-16 pad">
-          <h1 className="h1t general ">
-            From Graduate to <br></br> Job-Ready Professional.
-          </h1>
-
-          <p className="para mt-5 mb-5 leading-[166%] font-semibold ">
-            Join India's Leading IT Training & Placement Institute{" "}
-            <br className="hidden md:block" /> 100% Job Guarantee | 1200+ Hiring
-            Partners | 12,000+ Students Placed
-          </p>
-
-          {/* CTA Buttons */}
-          <div className="flex items-center justify-center gap-4 flex-wrap">
-            <button
-              style={{
-                borderColor: "var(--brand-green)",
-              }}
-              className="btn  border text-white hover:opacity-90 transition-opacity"
-            >
-              Apply Now
-            </button>
-            <button
-              className="  btn-str border hover:bg-white/50 transition-colors"
-              style={{
-                borderColor: "var(--brand-green)",
-                color: "var(--brand-green)",
-              }}
-            >
-              Download Brochure
-            </button>
+        <div className="max">
+          {/* Section Header */}
+          <div className="pad mb-8">
+            {title && <h2 className="h2t-program mb-2 ">{title}</h2>}
+            {description && <p className="para ">{description}</p>}
           </div>
-        </div>
 
-        {/* Testimonial Carousel */}
-        <div className="relative  ">
-          <div className="overflow-hidden" ref={emblaRef}>
-            <div className="flex">
-              {testimonialsData.map((testimonial) => (
-                <div
-                  key={testimonial.id}
-                  className="flex-[0_0_90%] mb-8 min-w-0 sm:flex-[0_0_85%] md:flex-[0_0_42%] lg:flex-[0_0_24%] px-3"
-                >
-                  {testimonial.type === "text" ? (
-                    <TextTestimonialCard data={testimonial} />
-                  ) : (
-                    <VideoTestimonialCard data={testimonial} />
-                  )}
-                </div>
-              ))}
+          {/* Testimonials Carousel */}
+          <div className="relative ">
+            <div className="overflow-hidden" ref={emblaRef}>
+              <div className="flex">
+                {testimonials.map((testimonial, idx) => (
+                  <div
+                    key={idx}
+                    className="flex-[0_0_90%] mb-2 min-w-0 sm:flex-[0_0_85%] md:flex-[0_0_42%] lg:flex-[0_0_24%] px-3"
+                  >
+                    {testimonial.type === "text" ? (
+                      <TextTestimonialCard data={testimonial} />
+                    ) : (
+                      <VideoTestimonialCard data={testimonial} />
+                    )}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <StatsSection style="mt-12" />
     </section>
   );
 };
 
 // Text Testimonial Card Component
 const TextTestimonialCard = ({ data }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  // Truncate text to first 150 characters
+  const getPreviewText = (text) => {
+    if (text.length <= 170) return text;
+    return text.substring(0, 170) + "...";
+  };
+
+  const shouldShowReadMore = data.review.length > 170;
+
   return (
-    <div className="bg-white rounded-2xl p-6 shadow-lg h-[495px] md:h-[450px] flex flex-col justify-between">
+    <div className="bg-[#E9EDE5] rounded-2xl p-6 shadow-xs h-[495px] md:h-[450px] flex flex-col justify-between border border-gray-200">
       {/* Review Text */}
-      <p className="text-[#6B6978] text-[18px] leading-relaxed ">
-        {data.review}
-      </p>
+      <div className="flex-1 overflow-y-auto">
+        <p className="text-[#6B6978] text-[18px] leading-relaxed">
+          {isExpanded ? data.review : getPreviewText(data.review)}{" "}
+          {shouldShowReadMore && (
+            <button
+              onClick={() => setIsExpanded(!isExpanded)}
+              className="text-[#017D3E] font-semibold text-[16px]  hover:underline"
+            >
+              {isExpanded ? "Read Less" : "Read More"}
+            </button>
+          )}
+        </p>
+      </div>
 
       {/* Student Info */}
-      <div className="flex items-end gap-4 mt-6">
+      <div className="flex items-end gap-4 mt-2 pt-4 ">
         {/* Left: Name, Role & Company Logo - 50% */}
         <div className="flex-[0_0_50%] flex flex-col justify-end gap-3">
           <div>
             <div className="flex items-center gap-2 mb-1">
-              <h4
-                className="font-semibold general text-[16px] "
-                style={{ color: "var(--brand-dark)" }}
-              >
+              <h4 className="font-semibold text-[16px] text-gray-900">
                 {data.name}
               </h4>
               {data.isVerified && (
@@ -124,26 +109,30 @@ const TextTestimonialCard = ({ data }) => {
             </div>
             <p className="text-[14px] text-gray-600">{data.role}</p>
           </div>
-          <div className="p-2 border flex justify-center border-[#DEDEDE] rounded-[15px]">
-            <Image
-              src={data.companyLogo}
-              alt="Company Logo"
-              width={100}
-              height={50}
-              className="object-contain"
-            />
-          </div>
+          {data.companyLogo && (
+            <div className="p-2 bg-white border flex justify-center border-[#DEDEDE] rounded-[15px]">
+              <Image
+                src={data.companyLogo}
+                alt="Company Logo"
+                width={100}
+                height={50}
+                className="object-contain"
+              />
+            </div>
+          )}
         </div>
 
         {/* Right: Student Photo - 50% */}
         <div className="flex-[0_0_50%] flex justify-end items-end">
-          <Image
-            src={data.studentPhoto}
-            alt={data.name}
-            width={130}
-            height={150}
-            className="object-cover rounded-lg"
-          />
+          {data.studentPhoto && (
+            <Image
+              src={data.studentPhoto}
+              alt={data.name}
+              width={130}
+              height={150}
+              className="object-cover rounded-lg"
+            />
+          )}
         </div>
       </div>
     </div>
@@ -261,12 +250,11 @@ const VideoTestimonialCard = ({ data }) => {
         )}
 
         {/* Video Controls */}
-        <div className="absolute bottom-4 left-4 right-4 rounded-[10px] bg-[#FFFFFFC7] backdrop-blur-[28.3px]  px-4 py-3 flex items-center gap-3">
+        <div className="absolute bottom-4 left-4 right-4 rounded-[10px] bg-[#FFFFFFC7] backdrop-blur-[28.3px] px-4 py-3 flex items-center gap-3">
           <button onClick={isPlaying ? handlePauseVideo : handlePlayVideo}>
             {isPlaying ? (
               <svg
-                className="w-5 h-5"
-                style={{ color: "#000000" }}
+                className="w-5 h-5 text-black"
                 fill="currentColor"
                 viewBox="0 0 20 20"
               >
@@ -278,8 +266,7 @@ const VideoTestimonialCard = ({ data }) => {
               </svg>
             ) : (
               <svg
-                className="w-5 h-5"
-                style={{ color: "#000000" }}
+                className="w-5 h-5 text-black"
                 fill="currentColor"
                 viewBox="0 0 20 20"
               >
@@ -294,8 +281,7 @@ const VideoTestimonialCard = ({ data }) => {
           <button onClick={toggleMute}>
             {isMuted ? (
               <svg
-                className="w-5 h-5"
-                style={{ color: "#000000" }}
+                className="w-5 h-5 text-black"
                 fill="currentColor"
                 viewBox="0 0 20 20"
               >
@@ -307,8 +293,7 @@ const VideoTestimonialCard = ({ data }) => {
               </svg>
             ) : (
               <svg
-                className="w-5 h-5"
-                style={{ color: "#000000" }}
+                className="w-5 h-5 text-black"
                 fill="currentColor"
                 viewBox="0 0 20 20"
               >
@@ -334,4 +319,5 @@ const VideoTestimonialCard = ({ data }) => {
     </div>
   );
 };
-export default HeroSection;
+
+export default TestimonialsSection;

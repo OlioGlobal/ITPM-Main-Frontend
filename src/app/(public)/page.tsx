@@ -1,5 +1,5 @@
 import Image from "next/image";
-import HeroSection from "@/components/main/home/Herosection";
+import HeroSectionHome from "@/components/main/home/HerosectionHome";
 import PlacementPartners from "@/components/main/home/PlacementPartners";
 import ChampionSection from "@/components/main/home/ChampionSection";
 import PracticalLearning from "@/components/main/home/PracticalLearning";
@@ -9,8 +9,8 @@ import CTASection from "@/components/main/home/CTASection";
 export default function Home() {
   return (
     <div>
-      <HeroSection />
-      <PlacementPartners />
+      <HeroSectionHome />
+      <PlacementPartners center={true} />
       <ChampionSection />
       <PracticalLearning />
       <Accreditations />

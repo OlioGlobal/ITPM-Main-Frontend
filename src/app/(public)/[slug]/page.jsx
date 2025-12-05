@@ -11,6 +11,10 @@ import CourseInfoSection from "@/components/main/public/sections/CourseInfoSecti
 import TeamSection from "@/components/main/home/TeamSection";
 import PlacementPartners from "@/components/main/home/PlacementPartners";
 import CTASection from "@/components/main/home/CTASection";
+import TestimonialsSection from "@/components/main/public/sections/TestimonialsSection";
+import { testimonialsData2 } from "@/constants/testimonialsData";
+import LeadForm from "@/components/main/public/LeadForm";
+import StickyNav from "@/components/main/public/StickyNav";
 
 // Generate metadata for SEO
 export async function generateMetadata({ params }) {
@@ -29,6 +33,16 @@ export async function generateMetadata({ params }) {
     };
   }
 }
+
+// Section label mapping
+const sectionLabels = {
+  description: "Overview",
+  accordion: "Modules",
+  skills: "Skills",
+  prerequisites: "Requirements",
+  course_info: "Course Info",
+  course_cta: "Enroll",
+};
 
 // Render section component (without wrapper - raw content only)
 function renderSectionContent(section) {
@@ -107,47 +121,77 @@ export default async function PublicPage({ params }) {
     (s) => !isLeftColumnSection(s.sectionType) && s.sectionType !== "banner"
   );
 
+  // Create nav sections array
+  const navSections = leftSections.map((section) => ({
+    id: `section-${section.sectionType}`,
+    label: sectionLabels[section.sectionType] || section.sectionType,
+  }));
+
+  // Add fixed sections to nav
+  const allNavSections = [
+    ...navSections,
+    { id: "testimonials-section", label: "Testimonials" },
+    { id: "placements-section", label: "Placements" },
+  ];
+
   return (
     <main className="min-h-screen">
       {/* Hidden title for SEO */}
       <h1 className="sr-only">{page.title}</h1>
 
       {/* Banner Section - Full Width */}
-      {bannerSection && renderSectionContent(bannerSection)}
+      <div id="banner-section">
+        {bannerSection && renderSectionContent(bannerSection)}
+      </div>
+      <StickyNav sections={allNavSections} />
 
       <StatsSection style="rm" />
+
+      {/* Sticky Navigation */}
 
       {/* Two Column Layout - Flexbox with Sticky */}
       {leftSections.length > 0 && (
         <section className="max pad">
           <div className="rm">
-            <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
+            <div className="flex flex-col lg:flex-row gap-8 lg:gap-6">
               {/* Left Column - 60% */}
               <div className="w-full lg:flex-[0_0_60%] min-w-0">
                 <div className="space-y-16">
                   {leftSections.map((section) => (
-                    <div key={section._id}>{renderSectionContent(section)}</div>
+                    <div
+                      key={section._id}
+                      id={`section-${section.sectionType}`}
+                      className="scroll-mt-40 lg:scroll-mt-44"
+                    >
+                      {renderSectionContent(section)}
+                    </div>
                   ))}
                 </div>
               </div>
 
               {/* Right Column - 40% Sticky */}
-              <div className="w-full lg:flex-[0_0_40%] min-w-0">
-                <div className="sticky top-24">
-                  <div className="bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-300 h-[150px] rounded-lg shadow-sm flex items-center justify-center">
-                    <p className="text-gray-600 font-semibold">
-                      Sticky Sidebar
-                    </p>
-                  </div>
+              <div className="w-full lg:flex-[0_0_40%] min-w-0 hidden md:block">
+                <div className="sticky top-36 lg:top-40">
+                  <LeadForm pageSlug={resolvedParams.slug} />
                 </div>
               </div>
             </div>
           </div>
         </section>
       )}
-      <PlacementPartners />
-      <TeamSection />
 
+      <div id="testimonials-section" className="scroll-mt-40 lg:scroll-mt-44">
+        <TestimonialsSection
+          testimonials={testimonialsData2}
+          title="Practical Learning. Experienced Faculty."
+        />
+      </div>
+
+      <div id="placements-section" className="scroll-mt-40 lg:scroll-mt-44">
+        <PlacementPartners />
+      </div>
+
+      <TeamSection />
       <CTASection />
 
       {/* Other Sections - Full Width */}

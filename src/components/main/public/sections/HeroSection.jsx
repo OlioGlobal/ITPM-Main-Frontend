@@ -35,8 +35,10 @@ export default function HeroSection({ data }) {
         <div className="rm max pad">
           <div className="space-y-6">
             {/* Title */}
-            <div className="mb-6">
-              {data.title && <h1 className="h1t-program mb-3">{data.title}</h1>}
+            <div className="mb-6 text-center md:text-start">
+              {data.title && (
+                <h1 className="h1t-program   mb-3">{data.title}</h1>
+              )}
 
               {/* Subtitle */}
               {data.subtitle && (
@@ -45,12 +47,12 @@ export default function HeroSection({ data }) {
             </div>
 
             {/* Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 mb-12">
+            <div className="flex flex-col sm:flex-row justify-center items-center  gap-3 mb-12">
               {data.apply_button?.text && (
-                <button className="btn">{data.apply_button.text}</button>
+                <button className="btn  w-fit">{data.apply_button.text}</button>
               )}
               {data.brochure_button?.text && (
-                <button className="border border-green-600 btn-str text-[#017D3E] font-medium hover:bg-green-50 transition-colors text-center">
+                <button className="border  w-fit border-green-600 btn-str text-[#017D3E] font-medium hover:bg-green-50 transition-colors text-center">
                   {data.brochure_button.text}
                 </button>
               )}
@@ -58,18 +60,23 @@ export default function HeroSection({ data }) {
 
             {/* Info Grid */}
             {data.info_grid && data.info_grid.length > 0 && (
-              <div className="grid grid-cols-2 gap-4 divide-x divide-gray-300">
+              <div className="flex flex-wrap gap-y-4 justify-center lg:justify-start">
                 {data.info_grid.map((item, idx) => (
-                  <div
-                    key={idx}
-                    className={`space-y-1 ${idx > 0 ? "pl-4" : ""}`}
-                  >
-                    <div className="text-xs sm:text-sm text-gray-600 font-medium">
-                      {item.title}
+                  <div key={idx} className="flex items-center">
+                    {/* Content */}
+                    <div className="px-4 space-y-1">
+                      <div className="text-xs sm:text-sm text-gray-600 font-medium">
+                        {item.title}
+                      </div>
+                      <div className="text-sm sm:text-base font-semibold text-gray-900">
+                        {item.description}
+                      </div>
                     </div>
-                    <div className="text-sm sm:text-base font-semibold text-gray-900">
-                      {item.description}
-                    </div>
+
+                    {/* Divider - hide on last item */}
+                    {idx < data.info_grid.length - 1 && (
+                      <div className="h-12 w-0.5 bg-[#CFD3DA]"></div>
+                    )}
                   </div>
                 ))}
               </div>
@@ -124,7 +131,7 @@ export default function HeroSection({ data }) {
                         >
                           {/* Divider - only show after first item */}
                           {idx > 0 && (
-                            <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[2px] h-12 bg-[#CFD3DA]"></div>
+                            <div className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-12 bg-[#CFD3DA]"></div>
                           )}
 
                           <div className="text-sm text-gray-600 font-medium">
