@@ -3,14 +3,7 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  LayoutDashboard,
-  FileText,
-  FolderOpen,
-  Settings,
-  ChevronLeft,
-  LogOut,
-} from "lucide-react";
+import { LayoutDashboard, FolderOpen, ChevronLeft, LogOut } from "lucide-react";
 import { logoutUser } from "@/redux/slices/authSlice";
 
 const menuItems = [
@@ -18,21 +11,13 @@ const menuItems = [
     title: "Dashboard",
     href: "/admin-itpm",
     icon: LayoutDashboard,
-  },
-  {
-    title: "Pages",
-    href: "/admin-itpm/pages",
-    icon: FileText,
+    exact: true, // ← Add exact match flag
   },
   {
     title: "Categories",
     href: "/admin-itpm/categories",
     icon: FolderOpen,
-  },
-  {
-    title: "Settings",
-    href: "/admin-itpm/settings",
-    icon: Settings,
+    exact: false,
   },
 ];
 
@@ -72,7 +57,7 @@ export default function Sidebar({ isOpen, setIsOpen }) {
           <div className="h-16 flex items-center justify-between px-6 border-b border-gray-200">
             <div className="flex items-center gap-2">
               <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                <FileText className="w-5 h-5 text-white" />
+                <LayoutDashboard className="w-5 h-5 text-white" />
               </div>
               <span className="font-semibold text-gray-900">ITPM Admin</span>
             </div>
@@ -89,9 +74,12 @@ export default function Sidebar({ isOpen, setIsOpen }) {
             <ul className="space-y-1">
               {menuItems.map((item) => {
                 const Icon = item.icon;
-                const isActive =
-                  pathname === item.href ||
-                  pathname.startsWith(item.href + "/");
+
+                // Fixed active state logic
+                const isActive = item.exact
+                  ? pathname === item.href // Exact match for Dashboard
+                  : pathname.startsWith(item.href + "/") ||
+                    pathname === item.href; // Prefix match for others
 
                 return (
                   <li key={item.href}>
