@@ -9,7 +9,7 @@ export default function CourseCtaSection({ data }) {
           <div className="p-8 md:p-12 flex flex-col justify-center">
             {data.title && <h2 className="h2t-program">{data.title}</h2>}
             {data.description && (
-              <p className="para mb-4 mt-3">{data.description}</p>
+              <p className="text-[16px] mb-4 mt-3">{data.description}</p>
             )}
             {data.buttonText && (
               <button className="btn w-fit">{data.buttonText}</button>

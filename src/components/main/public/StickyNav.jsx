@@ -60,19 +60,19 @@ export default function StickyNav({ sections }) {
 
   return (
     <nav
-      className={`bg-white border border-[#DEDEDE] hidden lg:block  transition-all duration-300 z-50 ${
-        isSticky ? "fixed top-16 lg:top-20 left-0 right-0 " : "relative"
+      className={`bg-white  border-[#DEDEDE] hidden lg:block  transition-all duration-300 z-50 ${
+        isSticky ? "fixed top-16 lg:top-28  left-0 right-0 " : "relative"
       }`}
     >
       <div className="">
         <div className="pad max">
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8 overflow-x-auto py-4">
+          <div className="hidden md:flex items-center gap-8 overflow-x-auto py-2 pt-4">
             {sections.map((section) => (
               <button
                 key={section.id}
                 onClick={() => scrollToSection(section.id)}
-                className={`whitespace-nowrap text-[16px] font-medium pb-2 border-b-2 transition-colors ${
+                className={`whitespace-nowrap text-[16px] font-medium pb-1 border-b-2 transition-colors ${
                   activeSection === section.id
                     ? "text-[#017D3E] border-[#017D3E]"
                     : "text-gray-600 border-transparent hover:text-gray-900"
@@ -89,7 +89,7 @@ export default function StickyNav({ sections }) {
               <button
                 key={section.id}
                 onClick={() => scrollToSection(section.id)}
-                className={`whitespace-nowrap text-[14px] font-medium px-4 py-2 rounded-full transition-colors flex-shrink-0 ${
+                className={`whitespace-nowrap text-[16px] font-medium px-4 py-2 rounded-full transition-colors flex-shrink-0 ${
                   activeSection === section.id
                     ? "bg-[#017D3E] text-white"
                     : "bg-gray-100 text-gray-600 hover:bg-gray-200"

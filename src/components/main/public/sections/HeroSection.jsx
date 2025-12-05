@@ -5,7 +5,7 @@ export default function HeroSection({ data }) {
   const getBackgroundStyle = () => {
     if (data.background_image?.url) {
       return {
-        backgroundImage: `url(${data.background_image.url}), linear-gradient(90deg, #E9EDE5 0%, #E9EDE5 100%) `,
+        backgroundImage: `url(${data.background_image.url}), linear-gradient(90deg, #E9EDE5 0%, #E9EDE5 100%)`,
         backgroundPosition: "center right, left center",
         backgroundRepeat: "no-repeat, no-repeat",
         backgroundSize: "contain, cover",
@@ -36,9 +36,7 @@ export default function HeroSection({ data }) {
           <div className="space-y-6">
             {/* Title */}
             <div className="mb-6 text-center md:text-start">
-              {data.title && (
-                <h1 className="h1t-program   mb-3">{data.title}</h1>
-              )}
+              {data.title && <h1 className="h1t-program mb-3">{data.title}</h1>}
 
               {/* Subtitle */}
               {data.subtitle && (
@@ -47,12 +45,12 @@ export default function HeroSection({ data }) {
             </div>
 
             {/* Buttons */}
-            <div className="flex flex-col sm:flex-row justify-center items-center  gap-3 mb-12">
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-3 mb-12">
               {data.apply_button?.text && (
-                <button className="btn  w-fit">{data.apply_button.text}</button>
+                <button className="btn w-fit">{data.apply_button.text}</button>
               )}
               {data.brochure_button?.text && (
-                <button className="border  w-fit border-green-600 btn-str text-[#017D3E] font-medium hover:bg-green-50 transition-colors text-center">
+                <button className="border w-fit border-green-600 btn-str text-[#017D3E] font-medium hover:bg-green-50 transition-colors text-center">
                   {data.brochure_button.text}
                 </button>
               )}
@@ -75,7 +73,7 @@ export default function HeroSection({ data }) {
 
                     {/* Divider - hide on last item */}
                     {idx < data.info_grid.length - 1 && (
-                      <div className="h-12 w-0.5 bg-[#CFD3DA]"></div>
+                      <div className="h-12 w-px bg-[#CFD3DA]"></div>
                     )}
                   </div>
                 ))}
@@ -85,11 +83,13 @@ export default function HeroSection({ data }) {
         </div>
       </section>
 
-      {/* Desktop Version - With background image */}
-      <section className="relative overflow-hidden hidden lg:block">
-        <div style={getBackgroundStyle()} className="">
-          <div className="max-w-screen-2xl mx-auto">
-            <div className="rm max pad">
+      {/* Desktop Version - With background image constrained to max-w-screen-2xl */}
+      <section className="relative bg-[#E9EDE5] overflow-hidden hidden lg:block">
+        {/* Full-width background color container */}
+        <div className="w-full bg-[#E9EDE5]">
+          {/* Max-width container for background image */}
+          <div className="max relative" style={getBackgroundStyle()}>
+            <div className="rm  pad">
               <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
                 {/* Left Content */}
                 <div>
@@ -131,7 +131,7 @@ export default function HeroSection({ data }) {
                         >
                           {/* Divider - only show after first item */}
                           {idx > 0 && (
-                            <div className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-12 bg-[#CFD3DA]"></div>
+                            <div className="absolute left-0 top-1/2 -translate-y-1/2 w-px h-12 bg-[#CFD3DA]"></div>
                           )}
 
                           <div className="text-sm text-gray-600 font-medium">

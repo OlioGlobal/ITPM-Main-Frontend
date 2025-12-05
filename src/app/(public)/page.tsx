@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <div>
       <HeroSectionHome />
-      <PlacementPartners center={true} />
+      <PlacementPartners center={true} style="rm" />
       <ChampionSection />
       <PracticalLearning />
       <Accreditations />

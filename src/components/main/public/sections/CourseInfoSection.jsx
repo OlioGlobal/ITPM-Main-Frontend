@@ -40,7 +40,7 @@ export default function CourseInfoSection({ data }) {
 
                 {/* Content */}
                 <div className="flex-1 min-w-0">
-                  <h3 className="text-base font-medium text-gray-900 mb-1">
+                  <h3 className="text-[16px] font-medium text-[#6B6978] mb-1">
                     {feature.title}
                   </h3>
                   {feature.description && (

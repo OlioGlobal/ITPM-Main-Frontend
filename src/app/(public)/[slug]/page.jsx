@@ -145,18 +145,18 @@ export default async function PublicPage({ params }) {
       </div>
       <StickyNav sections={allNavSections} />
 
-      <StatsSection style="rm" />
+      <StatsSection style="my-10" />
 
       {/* Sticky Navigation */}
 
       {/* Two Column Layout - Flexbox with Sticky */}
       {leftSections.length > 0 && (
         <section className="max pad">
-          <div className="rm">
+          <div className="">
             <div className="flex flex-col lg:flex-row gap-8 lg:gap-6">
               {/* Left Column - 60% */}
-              <div className="w-full lg:flex-[0_0_60%] min-w-0">
-                <div className="space-y-16">
+              <div className="w-full lg:flex-[0_0_65%] min-w-0">
+                <div className="space-y-14">
                   {leftSections.map((section) => (
                     <div
                       key={section._id}
@@ -170,8 +170,8 @@ export default async function PublicPage({ params }) {
               </div>
 
               {/* Right Column - 40% Sticky */}
-              <div className="w-full lg:flex-[0_0_40%] min-w-0 hidden md:block">
-                <div className="sticky top-36 lg:top-40">
+              <div className="w-full lg:flex-[0_0_35%] min-w-0 hidden md:block">
+                <div className="sticky top-42">
                   <LeadForm pageSlug={resolvedParams.slug} />
                 </div>
               </div>
@@ -191,7 +191,7 @@ export default async function PublicPage({ params }) {
         <PlacementPartners />
       </div>
 
-      <TeamSection />
+      <TeamSection style="h2t-program mb-3" />
       <CTASection />
 
       {/* Other Sections - Full Width */}

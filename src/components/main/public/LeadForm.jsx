@@ -4,8 +4,8 @@ import useLeadForm from "../../../hooks/useLeadForm";
 
 export default function LeadForm({
   pageSlug = "default",
-  formTitle = "Get In Touch",
-  formDescription = "Register yourself to get IT Career Counselling",
+  formTitle = "Register For Free",
+  formDescription = null,
   onSuccess,
 }) {
   const {
@@ -76,7 +76,7 @@ export default function LeadForm({
       >
         {/* Header */}
         <div className="mb-5">
-          <h2 className="text-[22px] leading-[30px] font-bold text-[#0a1f14]">
+          <h2 className="text-[16px] leading-[100%] font-semibold text-[#143119]">
             {formTitle}
           </h2>
           <p className="text-[#0a1f14]">{formDescription}</p>
@@ -94,11 +94,11 @@ export default function LeadForm({
                 className="w-full border text-black border-[#B8D0C4] rounded-[5px] px-3 pt-5 pb-2 focus:outline-none focus:ring-1 focus:ring-green-600 peer"
                 placeholder=" "
               />
-              <label className="absolute text-[16px] text-gray-500 duration-300 transform -translate-y-3 scale-90 top-2 z-10 origin-[0] left-3 bg-[#F5F7F8] px-1 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-2 peer-placeholder-shown:top-2 peer-focus:scale-90 peer-focus:-translate-y-3 peer-focus:top-2">
+              <label className="absolute text-[14px] text-gray-500 duration-300 transform -translate-y-3 scale-90 top-2 z-10 origin-[0] left-3 bg-[#F5F7F8] px-1 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-2 peer-placeholder-shown:top-2 peer-focus:scale-90 peer-focus:-translate-y-3 peer-focus:top-2 pointer-events-none">
                 Enter Full Name
               </label>
               {errors.name && (
-                <p className="text-red-600 text-[16px] mt-1">
+                <p className="text-red-600 text-[14px] mt-1">
                   {errors.name.message}
                 </p>
               )}
@@ -112,11 +112,11 @@ export default function LeadForm({
                 className="w-full border text-black border-[#B8D0C4] rounded-[5px] px-3 pt-5 pb-2 focus:outline-none focus:ring-1 focus:ring-green-600 peer"
                 placeholder=" "
               />
-              <label className="absolute text-[16px] text-gray-500 duration-300 transform -translate-y-3 scale-90 top-2 z-10 origin-[0] left-3 bg-[#F5F7F8] px-1 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-2 peer-placeholder-shown:top-2 peer-focus:scale-90 peer-focus:-translate-y-3 peer-focus:top-2">
+              <label className="absolute text-[14px] text-gray-500 duration-300 transform -translate-y-3 scale-90 top-2 z-10 origin-[0] left-3 bg-[#F5F7F8] px-1 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-2 peer-placeholder-shown:top-2 peer-focus:scale-90 peer-focus:-translate-y-3 peer-focus:top-2 pointer-events-none">
                 Enter City
               </label>
               {errors.city && (
-                <p className="text-red-600 text-[16px] mt-1">
+                <p className="text-red-600 text-[14px] mt-1">
                   {errors.city.message}
                 </p>
               )}
@@ -140,11 +140,11 @@ export default function LeadForm({
                 className="w-full border text-black border-[#B8D0C4] rounded-[5px] px-3 pt-5 pb-2 focus:outline-none focus:ring-1 focus:ring-green-600 peer"
                 placeholder=" "
               />
-              <label className="absolute text-[16px] text-gray-500 duration-300 transform -translate-y-3 scale-90 top-2 z-10 origin-[0] left-3 bg-[#F5F7F8] px-1 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-2 peer-placeholder-shown:top-2 peer-focus:scale-90 peer-focus:-translate-y-3 peer-focus:top-2">
+              <label className="absolute text-[14px] text-gray-500 duration-300 transform -translate-y-3 scale-90 top-2 z-10 origin-[0] left-3 bg-[#F5F7F8] px-1 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-2 peer-placeholder-shown:top-2 peer-focus:scale-90 peer-focus:-translate-y-3 peer-focus:top-2 pointer-events-none">
                 Enter Mobile
               </label>
               {errors.mobile && (
-                <p className="text-red-600 text-[16px] mt-1">
+                <p className="text-red-600 text-[14px] mt-1">
                   {errors.mobile.message}
                 </p>
               )}
@@ -164,11 +164,11 @@ export default function LeadForm({
                 className="w-full border text-black border-[#B8D0C4] rounded-[5px] px-3 pt-5 pb-2 focus:outline-none focus:ring-1 focus:ring-green-600 peer"
                 placeholder=" "
               />
-              <label className="absolute text-[16px] text-gray-500 duration-300 transform -translate-y-3 scale-90 top-2 z-10 origin-[0] left-3 bg-[#F5F7F8] px-1 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-2 peer-placeholder-shown:top-2 peer-focus:scale-90 peer-focus:-translate-y-3 peer-focus:top-2">
+              <label className="absolute text-[14px] text-gray-500 duration-300 transform -translate-y-3 scale-90 top-2 z-10 origin-[0] left-3 bg-[#F5F7F8] px-1 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-2 peer-placeholder-shown:top-2 peer-focus:scale-90 peer-focus:-translate-y-3 peer-focus:top-2 pointer-events-none">
                 Enter Email Address
               </label>
               {errors.email && (
-                <p className="text-red-600 text-[16px] mt-1">
+                <p className="text-red-600 text-[14px] mt-1">
                   {errors.email.message}
                 </p>
               )}
@@ -181,7 +181,7 @@ export default function LeadForm({
               {...register("education", {
                 required: "Education is required",
               })}
-              className={`w-full border border-[#B8D0C4] rounded-[5px] px-4 py-3 focus:outline-none focus:ring-1 focus:ring-green-600 appearance-none ${
+              className={`w-full border text-[14px] border-[#B8D0C4] rounded-[5px] px-4 py-3 focus:outline-none focus:ring-1 focus:ring-green-600 appearance-none ${
                 formValues.education ? "text-black" : "text-gray-500"
               }`}
               style={{ background: "#F5F7F8" }}
@@ -203,7 +203,7 @@ export default function LeadForm({
               </svg>
             </div>
             {errors.education && (
-              <p className="text-red-600 text-[16px] mt-1">
+              <p className="text-red-600 text-[14px] mt-1">
                 {errors.education.message}
               </p>
             )}
@@ -217,7 +217,7 @@ export default function LeadForm({
                 {...register("passoutYear", {
                   required: "Passout Year is required",
                 })}
-                className={`w-full border border-[#B8D0C4] rounded-[5px] px-4 py-3 focus:outline-none focus:ring-1 focus:ring-green-600 appearance-none ${
+                className={`w-full border  text-[14px] border-[#B8D0C4] rounded-[5px] px-4 py-3 focus:outline-none focus:ring-1 focus:ring-green-600 appearance-none ${
                   formValues.passoutYear ? "text-black" : "text-gray-500"
                 }`}
                 style={{ background: "#F5F7F8" }}
@@ -239,7 +239,7 @@ export default function LeadForm({
                 </svg>
               </div>
               {errors.passoutYear && (
-                <p className="text-red-600 text-[16px] mt-1">
+                <p className="text-red-600 text-[14px] mt-1">
                   {errors.passoutYear.message}
                 </p>
               )}
@@ -251,7 +251,7 @@ export default function LeadForm({
                 {...register("itpCenter", {
                   required: "ITP Center is required",
                 })}
-                className={`w-full border border-[#B8D0C4] rounded-[5px] px-4 py-3 focus:outline-none focus:ring-1 focus:ring-green-600 appearance-none ${
+                className={`w-full border  text-[14px] border-[#B8D0C4] rounded-[5px] px-4 py-3 focus:outline-none focus:ring-1 focus:ring-green-600 appearance-none ${
                   formValues.itpCenter ? "text-black" : "text-gray-500"
                 }`}
                 style={{ background: "#F5F7F8" }}
@@ -273,7 +273,7 @@ export default function LeadForm({
                 </svg>
               </div>
               {errors.itpCenter && (
-                <p className="text-red-600 text-[16px] mt-1">
+                <p className="text-red-600 text-[14px] mt-1">
                   {errors.itpCenter.message}
                 </p>
               )}
@@ -285,7 +285,7 @@ export default function LeadForm({
             <button
               type="submit"
               disabled={loading}
-              className="w-full text-[15px] text-white sm:text-[16px] cursor-pointer bg-[#017D3E] hover:bg-[#076b39] font-medium py-3 rounded-[5px] transition-all duration-300 disabled:opacity-50"
+              className="w-full text-[15px]  text-white sm:text-[14px] cursor-pointer bg-[#017D3E] hover:bg-[#076b39] font-medium py-3 rounded-[5px] transition-all duration-300 disabled:opacity-50"
             >
               {loading ? (
                 <div className="flex items-center justify-center gap-2">
@@ -296,7 +296,7 @@ export default function LeadForm({
                 "Register Now"
               )}
             </button>
-            <div className="flex items-center font-medium gap-2 border-red-300 text-red-500 text-[13.5px] mt-2">
+            <div className="flex items-center font-medium gap-2 border-red-300 text-red-500 text-[12px] mt-2">
               <span>
                 *Minimum eligibility is graduation. Final-year students may also
                 apply.
@@ -330,12 +330,12 @@ export default function LeadForm({
               className="w-8 h-8 rounded-full border-2 border-white object-cover"
             />
           </div>
-          <span className="ml-4 text-[15px] font-bold text-[#133522]">
+          <span className="ml-4 text-[15px] font-semibold text-[#133522]">
             <span className="text-[#017D3E]">12000+</span> Students Have
-            Registered So Far!
+            Registered...
           </span>
         </div>
-        <div className="text-black text-center mt-2 font-inter italic text-[16px] leading-[161%]">
+        <div className="text-black text-center mt-2 font-inter italic text-[14px] leading-[161%]">
           Limited Seats.{" "}
           <span className="font-bold not-italic">Register now.</span>
         </div>

@@ -54,7 +54,7 @@ const teachers = [
   },
 ];
 
-const TeamSection = () => {
+const TeamSection = ({ style = "h2t mb-2" }) => {
   const [expandedCards, setExpandedCards] = useState({});
 
   const [emblaRef, emblaApi] = useEmblaCarousel(
@@ -87,9 +87,11 @@ const TeamSection = () => {
     <section className="rm bg-white overflow-hidden">
       <div className="max pad">
         {/* Header */}
-        <div className="flex flex-col items-start md:flex-row gap-3 md:justify-between md:items-center mb-8 md:mb-12">
+        <div className="flex flex-col items-start md:flex-row gap-3 md:justify-between md:items-center mb-8 md:mb-10">
           <div>
-            <h2 className="h2t mb-2">A Team of Renowned Teachers & Faculty</h2>
+            <h2 className={`${style}`}>
+              A Team of Renowned Teachers & Faculty
+            </h2>
             <p className="para-str text-[#6B6978]">
               We have helped 100+ Non IT Students get placed into high paying IT
               Jobs.

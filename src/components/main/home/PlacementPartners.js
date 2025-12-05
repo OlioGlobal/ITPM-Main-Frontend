@@ -15,7 +15,7 @@ const logos = [
   "/logo/LOGO.png",
 ];
 
-const PlacementPartners = ({ center = false }) => {
+const PlacementPartners = ({ center = false, style = "" }) => {
   const [emblaRef1] = useEmblaCarousel(
     { loop: true, align: "start", dragFree: true },
     [AutoScroll({ playOnInit: true, speed: 5, stopOnInteraction: false })]
@@ -34,12 +34,12 @@ const PlacementPartners = ({ center = false }) => {
   );
 
   return (
-    <section className="rm overflow-hidden">
+    <section className={`${style} overflow-hidden`}>
       <div className="max-w-[1700px] mx-auto">
         <h2
           className={`${
             center ? "text-center" : "text-start max pad"
-          } h3t  mb-14`}
+          } h3t  mb-12`}
         >
           Our Placement Partners
         </h2>

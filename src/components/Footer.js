@@ -66,7 +66,7 @@ const Footer = () => {
               alt="iTpreneur"
               width={180}
               height={180}
-              className="h-14 w-auto"
+              className="h-12 w-auto"
             />
           </div>
 

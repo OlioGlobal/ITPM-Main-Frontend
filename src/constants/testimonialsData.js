@@ -84,13 +84,12 @@ export const testimonialsData = [
     studentPhoto: "/temp/stu.png",
   },
 ];
-
 export const testimonialsData2 = [
   {
     id: 1,
     type: "text",
     review:
-      "With a non-IT background, I was unsure of transitioning into IT. The Data Analytics program at ITpreneur provided me with the skills and confidence I needed to start my career as an AI Engineer at Intelligentdx.",
+      "With a non-IT background, I was unsure about transitioning to IT. The Data Analytics program at ITpreneur gave me the skills and confidence to start my career as an AI Engineer.",
     name: "Prerana Mankar",
     role: "Software Developer",
     isVerified: true,
@@ -101,7 +100,7 @@ export const testimonialsData2 = [
     id: 2,
     type: "text",
     review:
-      "From a non-IT background, I was unsure about starting a career in IT. The Data Analytics program at ITpreneur gave me the knowledge and confidence I needed. The training was hands-on and well-paced, and I received excellent support from the placement team.",
+      "Coming from a non-IT background, ITpreneur's Data Analytics program gave me the knowledge I needed. The hands-on training and excellent placement support helped me secure my role.",
     name: "Roshan Doe",
     role: "Software Developer",
     isVerified: true,
@@ -112,7 +111,7 @@ export const testimonialsData2 = [
     id: 3,
     type: "text",
     review:
-      "I'm a fresher who was looking for an IT career and ITpreneur helped me turn my dreams into reality. The training was hands-on and well-paced, and I received excellent support from the placement team. Read More",
+      "As a fresher, ITpreneur helped turn my IT career dreams into reality. The hands-on training and placement support were exceptional.",
     name: "Amit Kumar",
     role: "Full Stack Developer",
     isVerified: true,
@@ -123,7 +122,7 @@ export const testimonialsData2 = [
     id: 4,
     type: "text",
     review:
-      "The Java Full Stack program transformed my career. The instructors were industry experts and the curriculum was up-to-date with current market demands. Within 3 months of completion, I landed my dream job.",
+      "The Java Full Stack program transformed my career. Industry-expert instructors and up-to-date curriculum helped me land my dream job within 3 months.",
     name: "Priya Sharma",
     role: "Backend Developer",
     isVerified: true,
@@ -134,7 +133,7 @@ export const testimonialsData2 = [
     id: 5,
     type: "text",
     review:
-      "ITpreneur's placement support is exceptional. They not only trained me but also prepared me for interviews. The mock interviews and resume building sessions were incredibly helpful in securing my current position.",
+      "ITpreneur's placement support is exceptional. The interview preparation and resume building sessions were incredibly helpful in securing my current position.",
     name: "Rahul Patil",
     role: "Data Analyst",
     isVerified: true,
@@ -145,7 +144,7 @@ export const testimonialsData2 = [
     id: 6,
     type: "text",
     review:
-      "Being from a mechanical engineering background, I was skeptical about transitioning to IT. But the mentors at ITpreneur made it so easy. The hands-on projects and real-world scenarios helped me learn faster.",
+      "Coming from mechanical engineering, I was skeptical about switching to IT. ITpreneur's mentors and hands-on projects made the transition smooth and easy.",
     name: "Sneha Desai",
     role: "UI/UX Developer",
     isVerified: true,

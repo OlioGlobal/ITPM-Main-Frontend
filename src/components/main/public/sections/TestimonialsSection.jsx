@@ -26,12 +26,12 @@ const TestimonialsSection = ({ testimonials, title, description }) => {
         <div className="max">
           {/* Section Header */}
           <div className="pad mb-8">
-            {title && <h2 className="h2t-program mb-2 ">{title}</h2>}
-            {description && <p className="para ">{description}</p>}
+            {title && <h2 className="h2t-program mb-2">{title}</h2>}
+            {description && <p className="para">{description}</p>}
           </div>
 
           {/* Testimonials Carousel */}
-          <div className="relative ">
+          <div className="relative">
             <div className="overflow-hidden" ref={emblaRef}>
               <div className="flex">
                 {testimonials.map((testimonial, idx) => (
@@ -57,55 +57,48 @@ const TestimonialsSection = ({ testimonials, title, description }) => {
 
 // Text Testimonial Card Component
 const TextTestimonialCard = ({ data }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
-
-  // Truncate text to first 150 characters
-  const getPreviewText = (text) => {
-    if (text.length <= 170) return text;
-    return text.substring(0, 170) + "...";
-  };
-
-  const shouldShowReadMore = data.review.length > 170;
-
   return (
-    <div className="bg-[#E9EDE5] rounded-2xl p-6 shadow-xs h-[495px] md:h-[450px] flex flex-col justify-between border border-gray-200">
-      {/* Review Text */}
-      <div className="flex-1 overflow-y-auto">
-        <p className="text-[#6B6978] text-[18px] leading-relaxed">
-          {isExpanded ? data.review : getPreviewText(data.review)}{" "}
-          {shouldShowReadMore && (
-            <button
-              onClick={() => setIsExpanded(!isExpanded)}
-              className="text-[#017D3E] font-semibold text-[16px]  hover:underline"
-            >
-              {isExpanded ? "Read Less" : "Read More"}
-            </button>
-          )}
+    <div className="bg-[#E9EDE5] rounded-2xl p-6 shadow-xs h-[495px] md:h-[400px] flex flex-col justify-between border border-gray-200">
+      {/* Review Text - Hidden Scrollbar */}
+      <div
+        className="flex-1 overflow-y-auto scrollbar-hide"
+        style={{
+          scrollbarWidth: "none" /* Firefox */,
+          msOverflowStyle: "none" /* IE and Edge */,
+        }}
+      >
+        <style jsx>{`
+          div::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
+          }
+        `}</style>
+        <p className="text-[#6B6978] text-[16px] leading-relaxed">
+          {data.review}
         </p>
       </div>
 
       {/* Student Info */}
-      <div className="flex items-end gap-4 mt-2 pt-4 ">
+      <div className="flex items-end gap-4 mt-2 pt-4">
         {/* Left: Name, Role & Company Logo - 50% */}
         <div className="flex-[0_0_50%] flex flex-col justify-end gap-3">
           <div>
             <div className="flex items-center gap-2 mb-1">
-              <h4 className="font-semibold text-[16px] text-gray-900">
-                {data.name}
+              <h4 className="font-semibold flex justify-center items-center gap-1 text-[16px] text-[#143119]">
+                {data.name}{" "}
+                {data.isVerified && (
+                  <svg
+                    className="w-4 h-4 text-green-500"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                )}
               </h4>
-              {data.isVerified && (
-                <svg
-                  className="w-4 h-4 text-green-500"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              )}
             </div>
             <p className="text-[14px] text-gray-600">{data.role}</p>
           </div>
@@ -139,7 +132,7 @@ const TextTestimonialCard = ({ data }) => {
   );
 };
 
-// Video Testimonial Card Component
+// Video Testimonial Card Component (unchanged)
 const VideoTestimonialCard = ({ data }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);

@@ -21,7 +21,7 @@ export default function DescriptionSection({ data }) {
         <div>
           {data.title && <h2 className="h2t-program mb-4">{data.title}</h2>}
           {data.description && (
-            <div className="text-[16px] font-semibold text-[#6B6978]  dm leading-[160%] ">
+            <div className="text-[16px] font-medium text-[#6B6978]  dm leading-[160%] ">
               <p className="whitespace-pre-line">
                 {isExpanded
                   ? data.description

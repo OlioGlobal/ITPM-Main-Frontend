@@ -57,7 +57,7 @@ h6 {
   @apply px-[5%];
 }
 .links {
-  @apply text-[18px] md:text-[20px];
+  @apply text-[16px];
   color: var(--text--para);
 }
 .btn {

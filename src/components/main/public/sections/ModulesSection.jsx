@@ -12,7 +12,7 @@ export default function ModulesSection({ data }) {
 
   return (
     <div>
-      <div className="mb-8">
+      <div className="mb-8 ">
         {data.title && <h2 className="h2t-program mb-2">{data.title}</h2>}
         {data.description && (
           <p className="text-gray-700">{data.description}</p>
@@ -34,7 +34,7 @@ export default function ModulesSection({ data }) {
                 className="w-full cursor-pointer flex items-center justify-between px-3 py-3 md:px-5 md:py-4 text-left group"
               >
                 <span
-                  className={`font-medium text-[16px] md:text-[18px] transition-colors ${
+                  className={`font-medium text-[16px]  transition-colors ${
                     openIndex === idx
                       ? "text-[#017D3E] !font-bold"
                       : "text-[#6B6978] group-hover:text-[#017D3E]"
@@ -57,10 +57,10 @@ export default function ModulesSection({ data }) {
                     if (!line.trim()) return null;
                     return (
                       <div key={lineIdx} className="flex items-start gap-3">
-                        <span className="text-gray-400 text-[16px] md:text-[18px] mt-0.5">
+                        <span className="text-[#6B6978] text-[16px]  mt-0.5">
                           ▷
                         </span>
-                        <span className="text-gray-600 text-[16px] md:text-[18px] leading-relaxed">
+                        <span className="text-[#6B6978] text-[16px]  leading-relaxed">
                           {line.trim()}
                         </span>
                       </div>

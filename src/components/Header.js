@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { Phone, Mail } from "lucide-react";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -33,8 +34,69 @@ const Header = () => {
 
   return (
     <>
+      {/* Contact Bar - Sticky, Hidden on mobile, visible on md+ */}
+      <div className="hidden md:block sticky top-0 z-50 bg-[#F5F5F5] border-b border-gray-200">
+        <div className="max pad">
+          <div className="flex items-center justify-between py-2">
+            {/* Left: Contact Info */}
+            <div className="flex font-medium items-center gap-6">
+              <div className="flex items-center gap-2 text-[16px] text-gray-700">
+                <Phone className="w-4 h-4" />
+                <span>Call us at </span>
+                <Link
+                  href="tel:+919876543210"
+                  className="text-[#112711] hover:underline transition-colors font-medium"
+                >
+                  +91 98765 43210
+                </Link>
+                <span> | </span>
+                <Link
+                  href="tel:+919876543210"
+                  className="text-[#112711] hover:underline transition-colors font-medium"
+                >
+                  +91 98765 43210
+                </Link>
+              </div>
+              <div className="flex items-center gap-2 text-[16px] text-gray-700">
+                <Mail className="w-4 h-4" />
+                <span>Email us at </span>
+                <Link
+                  href="mailto:info@itppune"
+                  className="text-[#112711] hover:underline transition-colors font-medium"
+                >
+                  info@itppune
+                </Link>
+              </div>
+            </div>
+
+            {/* Right: Quick Links */}
+            <div className="flex font-medium items-center gap-6">
+              <Link
+                href="/contact"
+                className="text-[16px] text-gray-700 hover:text-[#017D3E] transition-colors"
+              >
+                Contact
+              </Link>
+              <Link
+                href="/language"
+                className="text-[16px] text-gray-700 hover:text-[#017D3E] transition-colors"
+              >
+                Language
+              </Link>
+              <Link
+                href="/address"
+                className="text-[16px] text-gray-700 hover:text-[#017D3E] transition-colors"
+              >
+                Address
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Header - Sticky below contact bar */}
       <header
-        className={`fixed top-0 left-0 right-0 z-50 bg-[#FFFFFF] transition-shadow duration-300 ${
+        className={`sticky top-0 md:top-10  left-0 right-0 z-40 bg-[#FFFFFF] transition-shadow duration-300 ${
           isScrolled ? "shadow-md" : ""
         }`}
         style={{ borderBottom: "1px solid var(--border-light)" }}
@@ -49,7 +111,7 @@ const Header = () => {
                 width={500}
                 height={500}
                 priority
-                className="h-18 w-auto"
+                className=" h-12 md:h-18 w-auto"
               />
             </Link>
 
@@ -59,7 +121,7 @@ const Header = () => {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className=" font-normal links dm hover:opacity-80 transition-opacity"
+                  className="font-normal links dm hover:opacity-80 transition-opacity"
                 >
                   {link.name}
                 </Link>
@@ -68,10 +130,7 @@ const Header = () => {
 
             {/* CTA Button & Hamburger */}
             <div className="flex items-center gap-4">
-              <Link
-                href="/demo"
-                className="hidden btn dm sm:block   text-white "
-              >
+              <Link href="/demo" className="hidden btn dm sm:block text-white">
                 Book a Free Demo
               </Link>
 
@@ -134,7 +193,7 @@ const Header = () => {
               style={{ borderBottom: "1px solid var(--border-light)" }}
             >
               <Image
-                src="/logo.png"
+                src="/logo/itpreneur-pune-logo.webp"
                 alt="iTprencur Logo"
                 width={100}
                 height={27}
@@ -197,9 +256,6 @@ const Header = () => {
           </div>
         </div>
       </div>
-
-      {/* Spacer */}
-      <div className="h-16 lg:h-20" />
     </>
   );
 };
