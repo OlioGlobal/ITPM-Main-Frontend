@@ -62,7 +62,7 @@ const Footer = () => {
           {/* Logo */}
           <div className="mb-6 md:mb-0">
             <Image
-              src="/logo/itpm.png"
+              src="/logo/main-logo.png"
               alt="iTpreneur"
               width={180}
               height={180}

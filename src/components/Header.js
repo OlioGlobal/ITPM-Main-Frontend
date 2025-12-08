@@ -35,7 +35,7 @@ const Header = () => {
   return (
     <>
       {/* Contact Bar - Sticky, Hidden on mobile, visible on md+ */}
-      <div className="hidden md:block sticky top-0 z-50 bg-[#F5F5F5] border-b border-gray-200">
+      <div className="hidden md:block sticky top-0 z-50 bg-[#E9EDE5] border-b border-gray-200">
         <div className="max pad">
           <div className="flex items-center justify-between py-2">
             {/* Left: Contact Info */}
@@ -106,12 +106,12 @@ const Header = () => {
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2">
               <Image
-                src="/logo/itpreneur-pune-logo.webp"
+                src="/logo/main-logo.png"
                 alt="iTprencur Logo"
                 width={500}
                 height={500}
                 priority
-                className=" h-12 md:h-18 w-auto"
+                className=" h-10 md:h-16 w-auto"
               />
             </Link>
 
@@ -193,7 +193,7 @@ const Header = () => {
               style={{ borderBottom: "1px solid var(--border-light)" }}
             >
               <Image
-                src="/logo/itpreneur-pune-logo.webp"
+                src="/logo/main-logo.png"
                 alt="iTprencur Logo"
                 width={100}
                 height={27}
