@@ -8,9 +8,9 @@ import SkillsSection from "@/components/main/public/sections/SkillsSection";
 import CourseCtaSection from "@/components/main/public/sections/CourseCtaSection";
 import PrerequisitesSection from "@/components/main/public/sections/PrerequisitesSection";
 import CourseInfoSection from "@/components/main/public/sections/CourseInfoSection";
+import MainCtaSection from "@/components/main/home/CTASection";
 import TeamSection from "@/components/main/home/TeamSection";
 import PlacementPartners from "@/components/main/home/PlacementPartners";
-import CTASection from "@/components/main/home/CTASection";
 import TestimonialsSection from "@/components/main/public/sections/TestimonialsSection";
 import { testimonialsData2 } from "@/constants/testimonialsData";
 import LeadForm from "@/components/main/public/LeadForm";
@@ -68,6 +68,9 @@ function renderSectionContent(section) {
     case "course_info":
       return <CourseInfoSection key={section._id} data={section.data} />;
 
+    case "main_cta":
+      return <MainCtaSection key={section._id} data={section.data} />;
+
     default:
       return null;
   }
@@ -99,6 +102,7 @@ export default async function PublicPage({ params }) {
 
   // Separate sections
   const bannerSection = sections.find((s) => s.sectionType === "banner");
+  const mainCtaSection = sections.find((s) => s.sectionType === "main_cta");
 
   // Filter left sections and sort them in desired order
   const sectionOrder = [
@@ -118,7 +122,10 @@ export default async function PublicPage({ params }) {
     });
 
   const otherSections = sections.filter(
-    (s) => !isLeftColumnSection(s.sectionType) && s.sectionType !== "banner"
+    (s) =>
+      !isLeftColumnSection(s.sectionType) &&
+      s.sectionType !== "banner" &&
+      s.sectionType !== "main_cta"
   );
 
   // Create nav sections array
@@ -143,18 +150,17 @@ export default async function PublicPage({ params }) {
       <div id="banner-section">
         {bannerSection && renderSectionContent(bannerSection)}
       </div>
+
       <StickyNav sections={allNavSections} />
 
       <StatsSection style="my-10" />
-
-      {/* Sticky Navigation */}
 
       {/* Two Column Layout - Flexbox with Sticky */}
       {leftSections.length > 0 && (
         <section className="max pad">
           <div className="">
             <div className="flex flex-col lg:flex-row gap-8 lg:gap-6">
-              {/* Left Column - 60% */}
+              {/* Left Column - 65% */}
               <div className="w-full lg:flex-[0_0_65%] min-w-0">
                 <div className="space-y-14">
                   {leftSections.map((section) => (
@@ -169,7 +175,7 @@ export default async function PublicPage({ params }) {
                 </div>
               </div>
 
-              {/* Right Column - 40% Sticky */}
+              {/* Right Column - 35% Sticky */}
               <div className="w-full lg:flex-[0_0_35%] min-w-0 hidden md:block">
                 <div className="sticky top-42">
                   <LeadForm pageSlug={resolvedParams.slug} />
@@ -180,6 +186,7 @@ export default async function PublicPage({ params }) {
         </section>
       )}
 
+      {/* Testimonials Section */}
       <div id="testimonials-section" className="scroll-mt-40 lg:scroll-mt-44">
         <TestimonialsSection
           testimonials={testimonialsData2}
@@ -187,12 +194,16 @@ export default async function PublicPage({ params }) {
         />
       </div>
 
+      {/* Placement Partners Section */}
       <div id="placements-section" className="scroll-mt-40 lg:scroll-mt-44">
         <PlacementPartners />
       </div>
 
+      {/* Team Section */}
       <TeamSection style="h2t-program mb-3" />
-      <CTASection />
+
+      {/* Main CTA Section - From Backend */}
+      {mainCtaSection && renderSectionContent(mainCtaSection)}
 
       {/* Other Sections - Full Width */}
       {otherSections.map((section) => renderSectionContent(section))}

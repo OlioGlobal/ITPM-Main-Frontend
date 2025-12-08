@@ -102,7 +102,7 @@ const Header = () => {
         style={{ borderBottom: "1px solid var(--border-light)" }}
       >
         <div className="max pad">
-          <div className="flex items-center justify-between h-20">
+          <div className="flex items-center justify-between h-17 md:h-20">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2">
               <Image

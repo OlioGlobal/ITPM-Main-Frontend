@@ -91,7 +91,7 @@ const HeroSectionHome = () => {
 // Text Testimonial Card Component
 const TextTestimonialCard = ({ data }) => {
   return (
-    <div className="bg-white rounded-2xl p-6 shadow-lg h-[495px] md:h-[450px] flex flex-col justify-between">
+    <div className="bg-white rounded-2xl p-6 shadow-lg h-[455px] md:h-[450px] flex flex-col justify-between">
       {/* Review Text - Hidden Scrollbar */}
       <div
         className="flex-1 overflow-y-auto"
@@ -105,7 +105,7 @@ const TextTestimonialCard = ({ data }) => {
             display: none; /* Chrome, Safari, Opera */
           }
         `}</style>
-        <p className="text-[#6B6978] text-[18px] leading-relaxed">
+        <p className="text-[#6B6978] text-[16px] md:text-[18px] leading-relaxed">
           {data.review}
         </p>
       </div>
@@ -209,7 +209,7 @@ const VideoTestimonialCard = ({ data }) => {
   };
 
   return (
-    <div className="bg-white rounded-2xl overflow-hidden shadow-lg h-[495px] md:h-[450px]">
+    <div className="bg-white rounded-2xl overflow-hidden shadow-lg h-[455px] md:h-[450px]">
       {/* Video Container */}
       <div className="relative h-full bg-gray-200">
         <video

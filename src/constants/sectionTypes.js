@@ -8,6 +8,7 @@ export const SECTION_TYPES = {
   SIMILAR_COURSES: "similar_courses",
   MAIN_CTA: "main_cta",
   COURSE_CTA: "course_cta",
+  FEATURE_CARD: "feature_card",
 };
 
 export const SECTION_LABELS = {
@@ -20,6 +21,7 @@ export const SECTION_LABELS = {
   [SECTION_TYPES.SIMILAR_COURSES]: "Similar Courses",
   [SECTION_TYPES.MAIN_CTA]: "Main CTA",
   [SECTION_TYPES.COURSE_CTA]: "Course CTA",
+  [SECTION_TYPES.FEATURE_CARD]: "Feature Card",
 };
 
 export const SECTION_COLORS = {
@@ -32,4 +34,5 @@ export const SECTION_COLORS = {
   [SECTION_TYPES.SIMILAR_COURSES]: "bg-orange-100 text-orange-700",
   [SECTION_TYPES.MAIN_CTA]: "bg-red-100 text-red-700",
   [SECTION_TYPES.COURSE_CTA]: "bg-teal-100 text-teal-700",
+  [SECTION_TYPES.FEATURE_CARD]: "bg-cyan-100 text-cyan-700",
 };

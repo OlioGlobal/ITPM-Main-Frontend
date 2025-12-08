@@ -25,7 +25,7 @@ import CourseInfoSectionModal from "@/components/dashboard/admin/sections/Course
 import SimilarCoursesSectionModal from "@/components/dashboard/admin/sections/SimilarCoursesSectionModal";
 import MainCtaSectionModal from "@/components/dashboard/admin/sections/MainCtaSectionModal";
 import CourseCtaSectionModal from "@/components/dashboard/admin/sections/CourseCtaSectionModal";
-
+import FeatureCardModal from "@/components/dashboard/admin/sections/FeatureCardModal";
 export default function PageBuilderPage() {
   const params = useParams();
   const router = useRouter();
@@ -253,6 +253,15 @@ export default function PageBuilderPage() {
 
       {sectionModal.isOpen && sectionModal.type === "course_cta" && (
         <CourseCtaSectionModal
+          isOpen={sectionModal.isOpen}
+          onClose={closeSectionModal}
+          pageId={params.id}
+          section={sectionModal.section}
+        />
+      )}
+
+      {sectionModal.isOpen && sectionModal.type === "feature_card" && (
+        <FeatureCardModal
           isOpen={sectionModal.isOpen}
           onClose={closeSectionModal}
           pageId={params.id}

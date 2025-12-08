@@ -23,3 +23,16 @@ export async function getAllPublishedPages() {
 
   return response.json();
 }
+
+export async function getHomeCategoriesWithFeatures() {
+  const response = await fetch(`${API_URL}/public/home-categories`, {
+    cache: "no-store",
+  });
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch home categories");
+  }
+
+  const data = await response.json();
+  return data;
+}

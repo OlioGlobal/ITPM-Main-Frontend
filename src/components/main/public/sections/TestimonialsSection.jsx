@@ -58,7 +58,7 @@ const TestimonialsSection = ({ testimonials, title, description }) => {
 // Text Testimonial Card Component
 const TextTestimonialCard = ({ data }) => {
   return (
-    <div className="bg-[#E9EDE5] rounded-2xl p-6 shadow-xs h-[495px] md:h-[400px] flex flex-col justify-between border border-gray-200">
+    <div className="bg-[#E9EDE5] rounded-2xl p-6 shadow-xs h-[455px] md:h-[400px] flex flex-col justify-between border border-gray-200">
       {/* Review Text - Hidden Scrollbar */}
       <div
         className="flex-1 overflow-y-auto scrollbar-hide"
@@ -177,7 +177,7 @@ const VideoTestimonialCard = ({ data }) => {
   };
 
   return (
-    <div className="bg-white rounded-2xl overflow-hidden shadow-lg h-[495px] md:h-[450px]">
+    <div className="bg-white rounded-2xl overflow-hidden shadow-lg h-[455px] md:h-[450px]">
       {/* Video Container */}
       <div className="relative h-full bg-gray-200">
         <video
