@@ -26,6 +26,7 @@ import SimilarCoursesSectionModal from "@/components/dashboard/admin/sections/Si
 import MainCtaSectionModal from "@/components/dashboard/admin/sections/MainCtaSectionModal";
 import CourseCtaSectionModal from "@/components/dashboard/admin/sections/CourseCtaSectionModal";
 import FeatureCardModal from "@/components/dashboard/admin/sections/FeatureCardModal";
+import LearningOutcomesModal from "@/components/dashboard/admin/sections/LearningOutcomesModal";
 export default function PageBuilderPage() {
   const params = useParams();
   const router = useRouter();
@@ -158,7 +159,7 @@ export default function PageBuilderPage() {
           <AddSectionDropdown onSelect={handleAddSection} />
         </div>
       ) : (
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           {currentSections.map((section) => (
             <SectionCard
               key={section._id}
@@ -262,6 +263,14 @@ export default function PageBuilderPage() {
 
       {sectionModal.isOpen && sectionModal.type === "feature_card" && (
         <FeatureCardModal
+          isOpen={sectionModal.isOpen}
+          onClose={closeSectionModal}
+          pageId={params.id}
+          section={sectionModal.section}
+        />
+      )}
+      {sectionModal.isOpen && sectionModal.type === "learning_outcomes" && (
+        <LearningOutcomesModal
           isOpen={sectionModal.isOpen}
           onClose={closeSectionModal}
           pageId={params.id}

@@ -13,24 +13,21 @@ export default function SectionCard({
   const getPreviewContent = () => {
     const data = section.data;
 
-    switch (section.sectionType) {
-      case "banner":
-        return data.title || "No title";
-      case "description":
-        return data.title || "No title";
-      case "prerequisites":
-        return `${data.points?.length || 0} prerequisites`;
-      case "accordion":
-        return `${data.items?.length || 0} items`;
-      case "skills":
-        return `${data.skills?.length || 0} skills`;
-      case "course_info":
-        return `${data.features?.length || 0} features`;
-      case "similar_courses":
-        return `${data.courses?.length || 0} courses`;
-      default:
-        return "No content";
-    }
+    const contentMap = {
+      banner: data.title || "No title",
+      description: data.title || "No title",
+      prerequisites: `${data.points?.length || 0} prerequisites`,
+      accordion: `${data.items?.length || 0} items`,
+      learning_outcomes: `${data.items?.length || 0} items`,
+      feature_card: `${data.points?.length || 0} items`,
+      skills: `${data.skills?.length || 0} skills`,
+      course_info: `${data.features?.length || 0} features`,
+      similar_courses: `${data.courses?.length || 0} courses`,
+      course_cta: data.title || "No title",
+      main_cta: data.title || "No title",
+    };
+
+    return contentMap[section.sectionType] || "No content";
   };
 
   return (

@@ -9,6 +9,7 @@ export const SECTION_TYPES = {
   MAIN_CTA: "main_cta",
   COURSE_CTA: "course_cta",
   FEATURE_CARD: "feature_card",
+  LEARNING_OUTCOMES: "learning_outcomes",
 };
 
 export const SECTION_LABELS = {
@@ -22,6 +23,7 @@ export const SECTION_LABELS = {
   [SECTION_TYPES.MAIN_CTA]: "Main CTA",
   [SECTION_TYPES.COURSE_CTA]: "Course CTA",
   [SECTION_TYPES.FEATURE_CARD]: "Feature Card",
+  [SECTION_TYPES.LEARNING_OUTCOMES]: "What You Will Learn",
 };
 
 export const SECTION_COLORS = {
@@ -35,4 +37,5 @@ export const SECTION_COLORS = {
   [SECTION_TYPES.MAIN_CTA]: "bg-red-100 text-red-700",
   [SECTION_TYPES.COURSE_CTA]: "bg-teal-100 text-teal-700",
   [SECTION_TYPES.FEATURE_CARD]: "bg-cyan-100 text-cyan-700",
+  [SECTION_TYPES.LEARNING_OUTCOMES]: "bg-emerald-100 text-emerald-700",
 };

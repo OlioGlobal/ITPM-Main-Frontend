@@ -15,6 +15,7 @@ import TestimonialsSection from "@/components/main/public/sections/TestimonialsS
 import { testimonialsData2 } from "@/constants/testimonialsData";
 import LeadForm from "@/components/main/public/LeadForm";
 import StickyNav from "@/components/main/public/StickyNav";
+import LearningOutcomesSection from "@/components/main/public/sections/LearningOutcomesSection";
 
 // Generate metadata for SEO
 export async function generateMetadata({ params }) {
@@ -42,6 +43,7 @@ const sectionLabels = {
   prerequisites: "Requirements",
   course_info: "Course Info",
   course_cta: "Enroll",
+  learning_outcomes: "What will learn",
 };
 
 // Render section component (without wrapper - raw content only)
@@ -55,6 +57,9 @@ function renderSectionContent(section) {
 
     case "accordion":
       return <ModulesSection key={section._id} data={section.data} />;
+
+    case "learning_outcomes":
+      return <LearningOutcomesSection key={section._id} data={section.data} />;
 
     case "skills":
       return <SkillsSection key={section._id} data={section.data} />;
@@ -81,6 +86,7 @@ function isLeftColumnSection(sectionType) {
   return (
     sectionType === "description" ||
     sectionType === "accordion" ||
+    sectionType === "learning_outcomes" ||
     sectionType === "skills" ||
     sectionType === "course_cta" ||
     sectionType === "prerequisites" ||
@@ -108,6 +114,7 @@ export default async function PublicPage({ params }) {
   const sectionOrder = [
     "description",
     "accordion",
+    "learning_outcomes",
     "skills",
     "course_cta",
     "prerequisites",
