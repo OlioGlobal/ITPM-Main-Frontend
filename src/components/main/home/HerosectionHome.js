@@ -8,6 +8,7 @@ import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
 import { testimonialsData } from "@/constants/testimonialsData";
 import StatsSection from "./StatsSection";
+import FloatingWordsBackground from "@/components/main/home/FloatingWordsBackground";
 
 const HeroSectionHome = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel(
@@ -21,70 +22,98 @@ const HeroSectionHome = () => {
   );
 
   return (
-    <section
-      className="relative min-h-screen pt-16 overflow-hidden"
-      style={{
-        background:
-          "linear-gradient(183.99deg, #85C325 22.03%, #FFFFFF 62.74%)",
-      }}
-    >
-      <div className="">
-        {/* Hero Content */}
-        <div className="text-center mb-16 pad">
-          <h1 className="h1t general ">
-            From Graduate to <br></br> Job-Ready Professional.
-          </h1>
+    <>
+      <FloatingWordsBackground
+        words={[
+          "Job-Ready Professional",
+          "100% Job Guarantee",
+          "1200+ Hiring Partners",
+          "12,000+ Students Placed",
+          "35LPA Highest Salary",
+          "Industry Recognized",
+          "9M+ Students Joined",
+          "Practical Learning",
+          "Experienced Faculty",
+          "Free Resources",
+          "Live Projects",
+          "Career Guidance",
+          "Placement Support",
+          "Mock Interviews",
+          "Resume Building",
+          "4.6 Ratings on Google",
+          "98% Recommend us",
+          "1K Google Reviews",
+          "7K Facebook Reviews",
+        ]}
+        gradient="linear-gradient(183.99deg, #85C325 22.03%, #FFFFFF 62.74%)"
+        textColor="rgba(255, 255, 255, 0.15)"
+        animationDuration={15}
+        fontSize={{
+          mobile: "2rem",
+          tablet: "3rem",
+          desktop: "4rem",
+        }}
+      >
+        <section className="relative min-h-screen pt-16 overflow-hidden">
+          <div className="">
+            {/* Hero Content */}
+            <div className="text-center mb-16 pad">
+              <h1 className="h1t general ">
+                From Graduate to <br></br> Job-Ready Professional.
+              </h1>
 
-          <p className="para mt-5 mb-5 leading-[166%] font-semibold ">
-            Join India's Leading IT Training & Placement Institute{" "}
-            <br className="hidden md:block" /> 100% Job Guarantee | 1200+ Hiring
-            Partners | 12,000+ Students Placed
-          </p>
+              <p className="para mt-5 mb-5 leading-[166%] font-semibold ">
+                Join India's Leading IT Training & Placement Institute{" "}
+                <br className="hidden md:block" /> 100% Job Guarantee | 1200+
+                Hiring Partners | 12,000+ Students Placed
+              </p>
 
-          {/* CTA Buttons */}
-          <div className="flex items-center justify-center gap-4 flex-wrap">
-            <button
-              style={{
-                borderColor: "var(--brand-green)",
-              }}
-              className="btn  border text-white hover:opacity-90 transition-opacity"
-            >
-              Apply Now
-            </button>
-            <button
-              className="  btn-str border hover:bg-white/50 transition-colors"
-              style={{
-                borderColor: "var(--brand-green)",
-                color: "var(--brand-green)",
-              }}
-            >
-              Download Brochure
-            </button>
-          </div>
-        </div>
-
-        {/* Testimonial Carousel */}
-        <div className="relative  ">
-          <div className="overflow-hidden" ref={emblaRef}>
-            <div className="flex">
-              {testimonialsData.map((testimonial) => (
-                <div
-                  key={testimonial.id}
-                  className="flex-[0_0_90%] mb-8 min-w-0 sm:flex-[0_0_85%] md:flex-[0_0_42%] lg:flex-[0_0_24%] px-3"
+              {/* CTA Buttons */}
+              <div className="flex items-center justify-center gap-4 flex-wrap">
+                <button
+                  style={{
+                    borderColor: "var(--brand-green)",
+                  }}
+                  className="btn  border text-white hover:opacity-90 transition-opacity"
                 >
-                  {testimonial.type === "text" ? (
-                    <TextTestimonialCard data={testimonial} />
-                  ) : (
-                    <VideoTestimonialCard data={testimonial} />
-                  )}
+                  Apply Now
+                </button>
+                <button
+                  className="  btn-str border hover:bg-white/50 transition-colors"
+                  style={{
+                    borderColor: "var(--brand-green)",
+                    color: "var(--brand-green)",
+                  }}
+                >
+                  Download Brochure
+                </button>
+              </div>
+            </div>
+
+            {/* Testimonial Carousel */}
+            <div className="relative  ">
+              <div className="overflow-hidden" ref={emblaRef}>
+                <div className="flex">
+                  {testimonialsData.map((testimonial) => (
+                    <div
+                      key={testimonial.id}
+                      className="flex-[0_0_90%] mb-8 min-w-0 sm:flex-[0_0_85%] md:flex-[0_0_42%] lg:flex-[0_0_24%] px-3"
+                    >
+                      {testimonial.type === "text" ? (
+                        <TextTestimonialCard data={testimonial} />
+                      ) : (
+                        <VideoTestimonialCard data={testimonial} />
+                      )}
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </div>
             </div>
           </div>
-        </div>
-      </div>
+        </section>
+      </FloatingWordsBackground>
       <StatsSection style="mt-12" />
-    </section>
+    </>
   );
 };
 
